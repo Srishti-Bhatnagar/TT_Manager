@@ -7,6 +7,7 @@ from schedule.models import Batch,Teacher,Schedule,Subject
 def batch_home(request):
 	
 	
-	b=Batch.objects.get(stream="CSE")
+	b=Batch.objects.get(stream="CSE",sem="4")
+	
 	tt=b.TT.all()
 	return render(request, 'schedule/batch_home.html',{'tt':tt})

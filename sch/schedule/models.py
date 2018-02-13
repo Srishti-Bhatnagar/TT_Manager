@@ -57,10 +57,11 @@ class Batch(models.Model):
 
 	
 	def __str__(self):
-		return str(self.stream)
+		return str(self.stream+" "+self.sem+" Sem")
 
 	class Meta:
 		ordering = ('year',)
+		unique_together = (("sem","stream"),)
 
 
 
