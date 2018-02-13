@@ -12,6 +12,8 @@ class Subject(models.Model):
 	def __str__(self):
 		return self.subject
 
+	class Meta:
+		ordering = ('subject_code',)
 	#def ret_code(self):
 	#	return self.subject_code
 	
@@ -42,6 +44,9 @@ class Teacher(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		ordering = ('Tid',)
+
 
 class Batch(models.Model):
 	sem=models.CharField(max_length=1,default="")
@@ -53,6 +58,10 @@ class Batch(models.Model):
 	
 	def __str__(self):
 		return str(self.stream)
+
+	class Meta:
+		ordering = ('year',)
+
 
 
 
