@@ -6,19 +6,14 @@ from django.contrib.auth.models import User, UserManager, Group
 class Subject(models.Model):
 	"""docstring or Subject"""
 	
-	subject_code=(
-			('0','-'),		
-			('1','CD'),
-			('2','CC'),
-			('3','NP'),
-			('4','MAP'),
-			('5','AI'),
-			('6','EE'),
-		)
-	subject=models.CharField(max_length=1, choices=subject_code, primary_key=True)
+	subject_code=models.IntegerField(blank=False,default=0)
+	subject=models.CharField(max_length=5,default="",primary_key=True)
 
 	def __str__(self):
 		return self.subject
+
+	#def ret_code(self):
+	#	return self.subject_code
 	
 
 
@@ -30,6 +25,9 @@ class Schedule(models.Model):
 
 	def __str__(self):
 		return self.Sid
+
+	def ret_sub(self):
+		return self.subject
 
 	class Meta:
 		ordering = ('Sid',)
