@@ -20,7 +20,7 @@ class Subject(models.Model):
 
 
 class Schedule(models.Model):
-	Sid=models.CharField(max_length=3,primary_key=True)
+	Sid=models.CharField(max_length=4,primary_key=True)
 	day = models.CharField(max_length=9,default="")
 	slots = models.CharField(max_length=8,default="")
 	subject= models.ForeignKey(Subject,default="")
